@@ -9,3 +9,7 @@
 // object. For example:
 //
 // Alloy.Globals.someGlobalFunction = function(){};
+
+
+var App = {};
+App.Kanka = require('com.ewin.kanka.bluetooth');
