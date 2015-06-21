@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<canvas id="chart" height="400" width="400" style="backgroundColor: 'blue';">
+	</canvas>
+	<script src="Chart.min.js"></script>
+	<script src="jquery-2.1.4.min.js"></script>
+	<script type="text/javascript">
+
+		var chart;
+		$(function() {
+			Ti.API.info('hi');
+			var ctx = $('#chart').get(0).getContext("2d");
+			chart = new Chart(ctx).Line({
+				labels: [],
+				datasets: [
+				{
+					label: "Temperatura",
+					fillColor: "rgba(220,220,220,0.2)",
+					strokeColor: "rgba(220,220,220,1)",
+					pointColor: "rgba(220,220,220,1)",
+					pointStrokeColor: "#fff",
+					pointHighlightFill: "#fff",
+					pointHighlightStroke: "rgba(220,220,220,1)",
+					data: []
+				}
+				]
+			}, {
+				scaleStartValue: 20
+			})
+		});
+
+		function addPoint(time, temp) {
+			chart.addData([temp], time);
+		}
+
+	</script>
+</body>
+</html>
