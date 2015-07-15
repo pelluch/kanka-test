@@ -6,5 +6,5 @@ ant dist -f ../kanka-bluetooth/android/build.xml
 unzip -o ../kanka-bluetooth/android/dist/com.ewin.kanka.bluetooth-android-1.0.zip
 
 titanium build --platform android --force -A /opt/android-sdk -T device -D development \
---skip-js-minify -s 4.1.0.v20150610125228
+--skip-js-minify -s 4.1.0.GA
 

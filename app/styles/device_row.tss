@@ -1,0 +1,6 @@
+
+"Label" : {
+	width: Ti.UI.SIZE,
+	left: 10,
+	height: 50
+}

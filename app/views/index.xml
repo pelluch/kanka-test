@@ -1,6 +1,7 @@
 <Alloy>
 	<Window class="container" layout="vertical">
-		<Label id="label" onClick="doClick"></Label>
-		<WebView id="webview" url="/html/chart.html" />
+		<TableView id="table">
+
+		</TableView>
 	</Window>
 </Alloy>

@@ -12,4 +12,6 @@
 
 
 var App = {};
+App.log = require('log');
 App.Kanka = require('com.ewin.kanka.bluetooth');
+App.Bluetooth = require('com.ewin.kanka.bluetooth');

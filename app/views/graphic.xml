@@ -1,0 +1,6 @@
+<Alloy>
+	<Window exitOnClose="false">
+		<Label id="label" onClick="doClick"></Label>
+		<WebView id="webview" url="/html/chart.html" />
+	</Window>
+</Alloy>

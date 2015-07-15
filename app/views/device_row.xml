@@ -1,0 +1,13 @@
+<Alloy>
+	<TableViewRow id="row" layout="vertical" height="Ti.UI.SIZE">
+		<View layout="horizontal" height="Ti.UI.SIZE">
+			<Label id="uid" />
+			<Label id="status" text="Visible" />
+			<Label id="temperature" text="N/A" /> 
+		</View>
+		<View layout="horizontal">
+			<Button id="button" onClick="connect" title="Conectar" />
+			<Button id="graphicButton" onClick="viewGraphic" title="Gráfica" />
+		</View>
+	</TableViewRow>
+</Alloy>
