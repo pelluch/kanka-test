@@ -8,7 +8,7 @@ var counter = 0;
 var interval = null;
 var temp;
 
-App.Bluetooth.test = true;
+App.Bluetooth.test = false;
 
 App.Bluetooth.startScan({
 	onDiscover: function(device) {

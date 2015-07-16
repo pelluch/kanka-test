@@ -42,7 +42,7 @@ function connect(e) {
 			onTemperatureChange: function(e) {
 				App.log('Temperature changed');
 				App.log(e);
-				var temp = Math.round((e.temperature - 32)*5/9);
+				var temp = e.temperature;
 
 				$.temperature.setText(temp + 'ºC');
 				if(_graphic) {

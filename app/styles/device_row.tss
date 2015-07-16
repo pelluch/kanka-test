@@ -4,3 +4,10 @@
 	left: 10,
 	height: 50
 }
+
+"TextField" : {
+	width: 100,
+	color: 'black',
+	backgroundColor: 'transparent',
+	height: 80
+}

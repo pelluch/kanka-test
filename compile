@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ant clean -f ../kanka-bluetooth/android/build.xml
-ant dist -f ../kanka-bluetooth/android/build.xml
+ant dist -f ../kanka-bluetooth/android/build.xml || exit 1
 
 unzip -o ../kanka-bluetooth/android/dist/com.ewin.kanka.bluetooth-android-1.0.zip
 

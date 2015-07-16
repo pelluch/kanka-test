@@ -5,9 +5,22 @@
 			<Label id="status" text="Visible" />
 			<Label id="temperature" text="N/A" /> 
 		</View>
-		<View layout="horizontal">
-			<Button id="button" onClick="connect" title="Conectar" />
-			<Button id="graphicButton" onClick="viewGraphic" title="Gráfica" />
+		<View layout="vertical">
+			<View layout="horizontal" height="Ti.UI.SIZE" >
+				<Button id="button" onClick="connect" title="Conectar" />
+				<Button id="graphicButton" onClick="viewGraphic" title="Gráfica" />
+			</View>
+			<View layout="vertical" height="Ti.UI.SIZE">
+				<View layout="horizontal">
+					<Label text="Thresholds" />
+					<TextField id="lowThreshold"  />
+					<TextField id="hightThreshold"  />
+				</View>
+				<View layout="horizontal">
+					<Label text="Alarm Delta" />
+					<TextField id="alarmDelta" />
+				</View>
+			</View>
 		</View>
 	</TableViewRow>
 </Alloy>
