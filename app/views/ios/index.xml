@@ -1,0 +1,9 @@
+<Alloy>
+	<NavigationWindow id="navigationWindow">
+		<Window class="container" layout="vertical">
+			<TableView id="table">
+
+			</TableView>
+		</Window>
+	</NavigationWindow>
+</Alloy>

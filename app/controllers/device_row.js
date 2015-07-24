@@ -66,7 +66,10 @@ function connect(e) {
 }
 
 function viewGraphic(e) {
-	
+	if(OS_ANDROID) {
 		_graphic.getView().open();
+	} else {
+		Alloy.Globals.NagivationWindow.openWindow($.getView());
+	}
 
 }

@@ -1,13 +1,17 @@
 
 
-$.index.open();
+$.getView().open();
 var rows = {};
 var counter = 0;
 
+if(OS_IOS) {
+	Alloy.Globals.NavigationWindow = $.getView();
+}
 
 var interval = null;
 var temp;
 App.log('Test');
+App.Bluetooth.test = true;
 
 App.Bluetooth.startScan({
 	onDiscover: function(device) {
