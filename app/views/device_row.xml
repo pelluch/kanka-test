@@ -5,18 +5,18 @@
 			<Label id="status" text="Visible" />
 			<Label id="temperature" text="N/A" /> 
 		</View>
-		<View layout="vertical">
+		<View layout="vertical" height="Ti.UI.SIZE">
 			<View layout="horizontal" height="Ti.UI.SIZE" >
-				<Button id="button" onClick="connect" title="Conectar" />
-				<Button id="graphicButton" onClick="viewGraphic" title="Gráfica" />
+				<Button id="button" onClick="connect" title="Conectar" left="10" />
+				<Button id="graphicButton" onClick="viewGraphic" title="Gráfica" left="20" />
 			</View>
 			<View layout="vertical" height="Ti.UI.SIZE">
-				<View layout="horizontal">
+				<View layout="horizontal" height="Ti.UI.SIZE">
 					<Label text="Thresholds" />
 					<TextField id="lowThreshold"  />
 					<TextField id="hightThreshold"  />
 				</View>
-				<View layout="horizontal">
+				<View layout="horizontal" height="Ti.UI.SIZE">
 					<Label text="Alarm Delta" />
 					<TextField id="alarmDelta" />
 				</View>

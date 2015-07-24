@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cd ../kanka-bluetooth/iphone
+rm -rf build
+python build.py
+mv com.ewin.kanka.bluetooth-iphone-1.0.zip ../../kanka-test/ && cd ../../kanka-test
+rm -rf modules/iphone
+unzip -o com.ewin.kanka.bluetooth-iphone-1.0.zip && rm com.ewin.kanka.bluetooth-iphone-1.0.zip
+
+appc ti build --platform iphone --force --skip-js-minify -D test -T device -V "Marketing@ewin.cl Marketing@ewin.cl (PQ64QU83KM)" -F iphone -P "5c567ad7-0d4f-4042-88d1-741c6a9c7c2a"
+
+# unzip -o ../kanka-bluetooth/android/dist/com.ewin.kanka.bluetooth-android-1.0.zip
+
+# appc ti build --platform android --force -A /opt/android-sdk -T device -D development \
+# --skip-js-minify -s 4.1.0.GA
+

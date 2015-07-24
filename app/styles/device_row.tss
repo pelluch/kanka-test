@@ -11,3 +11,11 @@
 	backgroundColor: 'transparent',
 	height: 80
 }
+
+"#row" : {
+	height: Ti.UI.SIZE
+}
+
+"Button" : {
+	height: 50
+}
