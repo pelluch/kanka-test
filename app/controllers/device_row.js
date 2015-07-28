@@ -91,7 +91,7 @@ function connect(e) {
 			},
 			onPrealarmStateChange: function(e) {
 				App.log(e);
-				if(e.event_type === "ACKNOWLEDGED_OR_REDUNDANT") {
+				if(e.state === "ACKNOWLEDGED_OR_REDUNDANT") {
 					if(OS_ANDROID) {
 						var notification = Titanium.Android.createNotification({
 							contentTitle: 'Cocción casi lista',
