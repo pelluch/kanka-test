@@ -1,5 +1,6 @@
 <Alloy>
 	<Window class="container" layout="vertical" onOpen="onOpen">
-		
+		<ScrollView id="scrollView" layout="vertical">
+		</ScrollView>
 	</Window>
 </Alloy>

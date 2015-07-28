@@ -1,9 +1,8 @@
 <Alloy>
 	<NavigationWindow id="navigationWindow">
 		<Window class="container" layout="vertical">
-			<TableView id="table">
-
-			</TableView>
+			<ScrollView id="scrollView" layout="vertical">
+			</ScrollView>
 		</Window>
 	</NavigationWindow>
 </Alloy>

@@ -11,7 +11,7 @@ if(OS_IOS) {
 var interval = null;
 var temp;
 App.log('Test');
-App.Bluetooth.test = false;
+App.Bluetooth.test = true;
 
 App.Bluetooth.startScan({
 	onDiscover: function(device) {
@@ -22,7 +22,7 @@ App.Bluetooth.startScan({
 				device: device
 			});
 			rows[device.uniqueId] = row;
-			$.getView().add(row.getView());
+			$.scrollView.add(row.getView());
 		} else {
 			rows[device.uniqueId].update(device);
 		}
