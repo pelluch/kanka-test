@@ -7,9 +7,9 @@
 
 "TextField" : {
 	width: 100,
-	color: 'black',
-	backgroundColor: 'transparent',
-	height: 80
+	left: 10,
+	keyboardType: Titanium.UI.KEYBOARD_NUMBER_PAD,
+	color: 'black'
 }
 
 "#row" : {

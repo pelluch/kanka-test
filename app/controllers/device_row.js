@@ -25,7 +25,8 @@ exports.update = function(device) {
 
 function connect(e) {
 	if(!connected) {
-		App.Bluetooth.connectDevice(_device.uniqueId, {
+
+		params = {
 			onConnect: function(e) {
 				connected = true;
 				$.button.setTitle('Desconectar');
@@ -58,7 +59,30 @@ function connect(e) {
 			onPrealarmStateChange: function(e) {
 				App.log('onPrealarmStateChange');
 			}
-		});
+		};
+
+		var lowThreshold = parseInt($.lowThreshold.getValue());
+		var highThreshold = parseInt($.highThreshold.getValue());
+		var alarmDelta = parseInt($.alarmDelta.getValue());
+
+		App.log(lowThreshold);
+		App.log(highThreshold);
+		App.log(alarmDelta);
+
+		if(!_.isNaN(lowThreshold)) {
+			App.log('App: Setting lowThreshold to ' + lowThreshold);
+			params.lowThreshold = lowThreshold;
+		}
+		if(!_.isNaN(highThreshold)) {
+			App.log('App: Setting highThreshold to ' + highThreshold);
+			params.highThreshold = highThreshold;
+		}
+		if(!_.isNaN(alarmDelta)) {
+			App.log('App: Setting alarmDelta to ' + alarmDelta);
+			params.preAlarmDelta = alarmDelta;
+		}
+
+		App.Bluetooth.connectDevice(_device.uniqueId, params);
 	} else {
 		App.Bluetooth.disconnectDevice(_device.uniqueId);
 

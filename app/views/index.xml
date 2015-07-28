@@ -1,7 +1,5 @@
 <Alloy>
-	<Window class="container" layout="vertical">
-		<TableView id="table">
-
-		</TableView>
+	<Window class="container" layout="vertical" onOpen="onOpen">
+		
 	</Window>
 </Alloy>

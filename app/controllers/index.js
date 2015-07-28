@@ -11,7 +11,7 @@ if(OS_IOS) {
 var interval = null;
 var temp;
 App.log('Test');
-App.Bluetooth.test = true;
+App.Bluetooth.test = false;
 
 App.Bluetooth.startScan({
 	onDiscover: function(device) {
@@ -22,7 +22,7 @@ App.Bluetooth.startScan({
 				device: device
 			});
 			rows[device.uniqueId] = row;
-			$.table.appendRow(row.getView());
+			$.getView().add(row.getView());
 		} else {
 			rows[device.uniqueId].update(device);
 		}
@@ -46,3 +46,31 @@ App.Bluetooth.startScan({
 		}
 	}
 });
+
+function onOpen(e) {
+	if(OS_ANDROID) {
+		var activity = this.activity;
+		activity.addEventListener('create', function(e) {
+			App.log('Index create');
+		});
+		activity.addEventListener('start', function(e) {
+			App.log('Index start');
+		});
+		activity.addEventListener('resume', function(e) {
+			App.log('Index resume');
+		});
+		activity.addEventListener('pause', function(e) {
+			App.log('Index pause');
+		});
+		activity.addEventListener('stop', function(e) {
+			App.log('Index stop');
+		});
+		activity.addEventListener('destroy', function(e) {
+			App.log('Index destroy');
+		});
+		activity.addEventListener('restart', function(e) {
+			App.log('Index restart');
+		});
+
+	}
+}
