@@ -39,6 +39,9 @@
         </plist>
     </ios>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <services>
+            <service url="alarm.js" />
+        </services>
     </android>
     <mobileweb>
         <precache/>

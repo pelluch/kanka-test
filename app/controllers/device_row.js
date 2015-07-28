@@ -22,7 +22,7 @@ exports.update = function(device) {
 	}
 }
 
-
+var thresholded = false;
 function connect(e) {
 	if(!connected) {
 
@@ -41,8 +41,8 @@ function connect(e) {
 				$.status.setText("Desconectado");
 			},
 			onTemperatureChange: function(e) {
-				App.log('Temperature changed');
-				App.log(e);
+				// App.log('Temperature changed');
+				// App.log(e);
 				var temp = e.temperature;
 
 				$.temperature.setText(temp + 'ºC');
@@ -51,13 +51,62 @@ function connect(e) {
 				}
 			},
 			onThreshold: function(e) {
-				App.log('Threshold reached');
+				if(thresholded) {
+					return;
+				}
+
+				thresholded = true;
+				App.log(e);
+
+				if(OS_ANDROID) {
+					var intent = Titanium.Android.createServiceIntent({
+						url: 'alarm.js'
+					});
+
+					var sound = Ti.Media.createSound({
+						url: "/sounds/alarm.mp3"
+					});
+					Alloy.Globals.Sound = sound;
+					sound.play();
+
+					intent.putExtra('interval', 2000);
+					var notification = Titanium.Android.createNotification({
+						contentTitle: 'Cocción finalizada',
+						contentText : 'Ha finalizado su cocción. Haga click para detener la alarma.',
+				    // Blank intent that will remove the notification when the user taps it
+				    // Do not override the default value of the 'flags' property
+				    contentIntent: Ti.Android.createPendingIntent({intent: intent}),
+    				// Image file located at /platform/android/res/drawable/warn.png
+    				icon: Ti.Android.R.drawable.ic_dialog_alert,
+    				number: 1,
+    				when: new Date()
+    			});
+					Titanium.Android.NotificationManager.notify(1, notification);
+				}
+
+
 			},
 			onArlarmAkcknowledge: function(e) {
-				App.log('Alarm acknowledge');
+				App.log(e);
 			},
 			onPrealarmStateChange: function(e) {
-				App.log('onPrealarmStateChange');
+				App.log(e);
+				if(e.event_type === "ACKNOWLEDGED_OR_REDUNDANT") {
+					if(OS_ANDROID) {
+						var notification = Titanium.Android.createNotification({
+							contentTitle: 'Cocción casi lista',
+							contentText : 'La cocción está casi lista',
+					    // Blank intent that will remove the notification when the user taps it
+					    // Do not override the default value of the 'flags' property
+					    contentIntent: Ti.Android.createPendingIntent({intent: Ti.Android.createIntent({})}),
+	    				// Image file located at /platform/android/res/drawable/warn.png
+	    				icon: Ti.Android.R.drawable.ic_dialog_alert,
+	    				number: 1,
+	    				when: new Date()
+	    			});
+						Titanium.Android.NotificationManager.notify(1, notification);
+					}
+				}
 			}
 		};
 
