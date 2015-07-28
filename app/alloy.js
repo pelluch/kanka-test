@@ -15,26 +15,26 @@ var App = {};
 App.log = require('log');
 App.Kanka = require('com.ewin.kanka.bluetooth');
 App.Bluetooth = require('com.ewin.kanka.bluetooth');
-
-
-Ti.Android.currentActivity.addEventListener('create', function(e) {
-	App.log('Root create');
-});
-Ti.Android.currentActivity.addEventListener('start', function(e) {
-	App.log('Root start');
-});
-Ti.Android.currentActivity.addEventListener('resume', function(e) {
-	App.log('Root resume');
-});
-Ti.Android.currentActivity.addEventListener('pause', function(e) {
-	App.log('Root pause');
-});
-Ti.Android.currentActivity.addEventListener('stop', function(e) {
-	App.log('Root stop');
-});
-Ti.Android.currentActivity.addEventListener('destroy', function(e) {
-	App.log('Root destroy');
-});
-Ti.Android.currentActivity.addEventListener('restart', function(e) {
-	App.log('Root restart');
-});
+	if(OS_ANDROID) {
+	Ti.Android.currentActivity.addEventListener('create', function(e) {
+		App.log('Root create');
+	});
+	Ti.Android.currentActivity.addEventListener('start', function(e) {
+		App.log('Root start');
+	});
+	Ti.Android.currentActivity.addEventListener('resume', function(e) {
+		App.log('Root resume');
+	});
+	Ti.Android.currentActivity.addEventListener('pause', function(e) {
+		App.log('Root pause');
+	});
+	Ti.Android.currentActivity.addEventListener('stop', function(e) {
+		App.log('Root stop');
+	});
+	Ti.Android.currentActivity.addEventListener('destroy', function(e) {
+		App.log('Root destroy');
+	});
+	Ti.Android.currentActivity.addEventListener('restart', function(e) {
+		App.log('Root restart');
+	});
+}
