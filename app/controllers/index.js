@@ -11,7 +11,7 @@ if(OS_IOS) {
 var interval = null;
 var temp;
 App.log('Test');
-App.Bluetooth.test = true;
+App.Bluetooth.test = false;
 
 App.Bluetooth.startScan({
 	onDiscover: function(device) {
