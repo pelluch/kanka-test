@@ -3,7 +3,11 @@
 ant clean -f ../kanka-bluetooth/android/build.xml
 ant dist -f ../kanka-bluetooth/android/build.xml || exit 1
 
+ant clean -f ../bluetooth-enable/android/build.xml
+ant dist -f ../bluetooth-enable/android/build.xml || exit 1
+
 unzip -o ../kanka-bluetooth/android/dist/com.ewin.kanka.bluetooth-android-1.0.zip
+unzip -o ../bluetooth-enable/android/dist/com.pelluch.bluetooth-android-1.0.zip
 
 appc ti build --platform android --force -A /opt/android-sdk -T device -D development \
 --skip-js-minify -s 4.1.0.GA

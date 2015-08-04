@@ -37,4 +37,5 @@ App.Bluetooth = require('com.ewin.kanka.bluetooth');
 	Ti.Android.currentActivity.addEventListener('restart', function(e) {
 		App.log('Root restart');
 	});
+	App.BluetoothEnable = require('com.pelluch.bluetooth');
 }

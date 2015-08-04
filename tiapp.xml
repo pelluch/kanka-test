@@ -54,6 +54,7 @@
     <modules>
         <module platform="android">com.ewin.kanka.bluetooth</module>
         <module platform="iphone" version="1.0">com.ewin.kanka.bluetooth</module>
+        <module platform="android">com.pelluch.bluetooth</module>
     </modules>
     <deployment-targets>
         <target device="iphone">true</target>

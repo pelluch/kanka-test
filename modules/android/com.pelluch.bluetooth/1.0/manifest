@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0
+apiversion: 2
+architectures: armeabi armeabi-v7a x86
+description: bluetooth-enable
+author: Pablo Lluch
+license: Specify your license
+copyright: Copyright (c) 2015 by Your Company
+
+# these should not be edited
+name: bluetooth-enable
+moduleid: com.pelluch.bluetooth
+guid: 78e8e009-6a13-48de-913d-d23005bdcd86
+platform: android
+minsdk: 4.1.0.GA
