@@ -26,13 +26,13 @@ overrode the settings with other TSS, XML, or JS settings:
 */
 
 ".container": {
-	backgroundColor:"white"
+	backgroundColor:"black"
 }
 
 "Label": {
 	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE,
-	color: "#000"
+	color: "white"
 }
 
 "#label": {

@@ -2,24 +2,42 @@
 	<View id="row" layout="vertical" height="Ti.UI.SIZE">
 		<View layout="horizontal" height="Ti.UI.SIZE">
 			<Label id="uid" />
-			<Label id="status" text="Visible" />
-			<Label id="temperature" text="N/A" /> 
+			<Label id="status" color="blue" text="Visible" left="20" />
 		</View>
 		<View layout="vertical" height="Ti.UI.SIZE">
-			<View layout="horizontal" height="Ti.UI.SIZE" >
-				<Button id="button" onClick="connect" title="Conectar" left="10" />
-				<Button id="graphicButton" onClick="viewGraphic" title="Gráfica" left="20" />
-			</View>
 			<View layout="vertical" height="Ti.UI.SIZE">
 				<View layout="horizontal" height="Ti.UI.SIZE">
 					<Label text="Thresholds" />
-					<TextField id="lowThreshold"  />
-					<TextField id="highThreshold"   />
+					<TextField id="lowThreshold" onBlur="lowThresholdChanged" />
+					<TextField id="highThreshold" onBlur="highThresholdChanged"  />
 				</View>
 				<View layout="horizontal" height="Ti.UI.SIZE">
 					<Label text="Alarm Delta" />
-					<TextField id="alarmDelta" />
+					<TextField id="alarmDelta" onBlur="preAlarmDeltaChanged" />
 				</View>
+			</View>
+			<View layout="vertical" height="Ti.UI.SIZE">
+				<View layout="horizontal" height="Ti.UI.SIZE">
+					<Label text="Temp" width="25%" />
+					<Label text="Low" width="25%" />
+					<Label text="High" width="25%" />
+					<Label text="Prealarm" width="25%" />
+				</View>
+				<View layout="horizontal" height="Ti.UI.SIZE" >
+					<Label id="temperatureLabel" text="N/A" width="25%" />
+					<Label id="lowThresholdLabel" text="N/A" width="25%" />
+					<Label id="highThresholdLabel" text="N/A" width="25%" />
+					<Label id="preAlarmDeltaLabel" text="N/A" width="25%" />
+				</View>
+			</View>
+			<View height="Ti.UI.SIZE" top="15" >
+				<Button id="button" onClick="connect" title="Conectar" width="Ti.UI.FILL" />
+			</View>
+			<View height="Ti.UI.SIZE" >
+				<Button onClick="resetDevice" title="Resetear" width="Ti.UI.FILL" />
+			</View>
+			<View height="Ti.UI.SIZE" >
+				<Button onClick="acknowledgeAlarm" title="Recibir Alarma" width="Ti.UI.FILL" />
 			</View>
 		</View>
 	</View>

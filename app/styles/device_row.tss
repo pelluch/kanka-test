@@ -1,7 +1,7 @@
 
 "Label" : {
 	width: Ti.UI.SIZE,
-	left: 10,
+	left: 0,
 	height: 50
 }
 
@@ -9,11 +9,17 @@
 	width: 100,
 	left: 10,
 	keyboardType: Titanium.UI.KEYBOARD_NUMBER_PAD,
-	color: 'black'
+	color: 'black',
+    backgroundColor: 'white',
+    height: 35,
+    font: {
+        fontSize: '12sp'
+    }
 }
 
 "#row" : {
-	height: Ti.UI.SIZE
+	height: Ti.UI.SIZE,
+    width: "90%"
 }
 
 "Button" : {
