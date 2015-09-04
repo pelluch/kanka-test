@@ -1,8 +1,0 @@
-<Alloy>
-	<NavigationWindow id="navigationWindow">
-		<Window class="container" layout="vertical">
-			<ScrollView id="scrollView" layout="vertical">
-			</ScrollView>
-		</Window>
-	</NavigationWindow>
-</Alloy>
