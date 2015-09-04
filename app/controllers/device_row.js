@@ -10,13 +10,14 @@ updateValues();
 
 function updateValues() {
 
-	App.log('Updating with values: ', {
+	/* App.log('Updating with values: ', {
 		temperature: _device.temperature,
 		lowThreshold: _device.lowThreshold,
 		highThreshold: _device.highThreshold,
 		preAlarmDelta: _device.preAlarmDelta
 	});
-	
+	*/
+	App.log(_device);
 	$.temperatureLabel.setText(_device.temperature);
 	$.lowThresholdLabel.setText(_device.lowThreshold);
 	$.highThresholdLabel.setText(_device.highThreshold);
@@ -64,7 +65,7 @@ function connect(e) {
 					_graphic.onTemperatureChange(temp);
 				}
 				_device = e;
-				updateValues();
+				// updateValues();
 			},
 			onThreshold: function(e) {
 				App.log('onThreshold');
@@ -87,7 +88,7 @@ function connect(e) {
 			onPrealarmStateChange: function(e) {
 				App.log('onPrealarmStateChange');
 
-				if(e.state === "ACKNOWLEDGED_OR_REDUNDANT") {
+				/*if(e.state === "ACKNOWLEDGED_OR_REDUNDANT") {
 					if(OS_ANDROID) {
 						var notification = Titanium.Android.createNotification({
 							contentTitle: 'Cocción casi lista',
@@ -102,9 +103,21 @@ function connect(e) {
 	    			});
 						Titanium.Android.NotificationManager.notify(1, notification);
 					}
-				}
+				}*/
 				_device = e;
 				updateValues();
+			},
+			onConnectionFailed: function(e) {
+				App.log('onConnectionFailed');
+				App.log('Error: ' + e.error);
+
+			},
+			onConnectionFailedWithRetries: function(e) {
+				App.log('onConnectionFailedWithRetries');
+				App.log('Error: ' + e.error);
+				setTimeout(function() {
+					connect();		
+				}, 2000);
 			}
 		};
 
